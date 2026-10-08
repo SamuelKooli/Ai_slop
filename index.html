@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e7e6ce">
+  <title>Rift Runners — Field Journal</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./icons.js" defer></script>
+  <script src="./game.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">R</span><strong>RIFT RUNNERS</strong></div>
+      <div class="run-stats" aria-label="Run statistics">
+        <span>SCORE <b id="scoreHud">000000</b></span>
+        <span>KILLS <b id="killsHud">0</b></span>
+        <span>BEST <b id="bestScore">000000</b></span>
+        <span class="points-stat">POINTS <b id="pointsTop">0</b></span>
+      </div>
+      <div class="toolbar">
+        <button id="soundButton" type="button" aria-label="Toggle sound">SOUND OFF</button>
+        <button id="fullscreenButton" type="button">FULLSCREEN</button>
+        <button id="resetProgressButton" class="reset-button" type="button">RESET PROGRESS</button>
+      </div>
+    </header>
+    <section class="canvas-frame" aria-label="Game">
+      <canvas id="arena" width="960" height="600" aria-label="Move with WASD or arrows, dash with Space. Your weapon fires automatically."></canvas>
+      <div class="hud">
+        <div class="hud-left">
+          <div class="hud-chip"><span class="dot cyan-dot"></span>WAVE <b id="waveHud">01</b></div>
+          <div class="hud-chip">NEXT <b id="timeHud">30</b><span>s</span></div>
+        </div>
+        <div class="health-wrap"><div class="health-label"><span>HULL</span><b id="healthText">100 / 100</b></div><div class="health-track"><i id="healthBar"></i></div></div>
+        <div class="hud-right">SURVIVED <b id="survivalHud">0:00</b></div>
+      </div>
+      <div class="loadout-strip" aria-label="Equipped gear">
+        <div class="gear-chip"><span id="weaponIcon"></span><span><b id="weaponName">Pulse blaster</b><small id="weaponLevel">COMMON / LV 1</small></span></div>
+        <div id="relicHud" class="relic-hud" aria-label="Equipped relic slots"></div>
+      </div>
+      <div class="dash-ready" id="dashReady"><span></span> DASH READY</div>
+      <span class="control-hint">WASD / ARROWS · SPACE TO DASH</span>
+      <div class="screen" id="screen">
+        <div class="screen-card">
+          <div class="screen-kicker" id="screenKicker">HANGAR</div>
+          <h1 id="screenTitle">Fall. Upgrade.<br><em>Go further.</em></h1>
+          <p id="screenText">Return stronger after each fall.</p>
+          <div id="screenChoices"></div>
+          <button class="main-button" id="mainButton">DROP IN</button>
+          <div class="screen-help">MOVE <b>W A S D</b> · DASH <b>SPACE</b> · AUTO FIRE <b>ON</b></div>
+        </div>
+      </div>
+      <div class="toast" id="toast" role="status"></div>
+      <div class="mobile-controls" aria-label="Touch controls">
+        <div class="dpad">
+          <button data-key="w" class="pad-up" aria-label="Move up">↑</button>
+          <button data-key="a" class="pad-left" aria-label="Move left">←</button>
+          <button data-key="s" class="pad-down" aria-label="Move down">↓</button>
+          <button data-key="d" class="pad-right" aria-label="Move right">→</button>
+        </div>
+        <button id="mobileDash" class="mobile-dash">DASH</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
